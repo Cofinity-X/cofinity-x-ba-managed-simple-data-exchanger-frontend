@@ -68,7 +68,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ env.IMAGE_NAMESPACE }}/${{ env.IMAGE_NAME }}
             ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/${{ env.IMAGE_NAME }}
           # Automatically prepare image tags; See action docs for more examples.
           # semver patter will generate tags like these for example :1 :1.2 :1.2.3
