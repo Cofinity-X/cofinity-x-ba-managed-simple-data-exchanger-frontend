@@ -23,16 +23,19 @@ on:
   push:
     branches:
       - 'main'
+      - 'dev'
     tags:
       - 'v*.*.*'
       - 'v*.*.*-*'
   pull_request:
     branches:
       - main
+      - dev
 
 env:
-  IMAGE_NAMESPACE: 'tractusx'
+  IMAGE_NAMESPACE: 'cofinity-x'
   IMAGE_NAME: 'managed-simple-data-exchanger-frontend'
+  IMAGE_REGISTRY: 'acrcfxsharedservices.azurecr.io'
   # variables needed for scripts/legal-notice.sh
   SERVER_URL: '${{ github.server_url }}'
   REF_NAME: '${{ github.ref_name }}'
@@ -41,8 +44,10 @@ env:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    environment: acr-shared-env
     permissions:
       packages: write
+      id-token: write
 
     steps:
       - name: Checkout
@@ -63,7 +68,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.IMAGE_NAMESPACE }}/${{ env.IMAGE_NAME }}
+            ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/${{ env.IMAGE_NAME }}
           # Automatically prepare image tags; See action docs for more examples.
           # semver patter will generate tags like these for example :1 :1.2 :1.2.3
           tags: |
@@ -73,32 +78,24 @@ jobs:
             type=semver,pattern={{major}}
             type=semver,pattern={{major}}.{{minor}}
 
-      - name: DockerHub login
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v2
+      # Establish authentication with azure account
+      - name: Azure CLI auth
+        uses: azure/login@v1
         with:
-          # Use existing DockerHub credentials present as secrets
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: ACR Login
+        run: az acr login --name ${{ env.IMAGE_REGISTRY }}
 
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
           file: ./Dockerfile
-          # Build image for verification purposes on every trigger event. Only push if event is not a PR
-          push: ${{ github.event_name != 'pull_request' }}
+          # Build image for verification purposes on every trigger event.
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-        # https://github.com/peter-evans/dockerhub-description
-        # Important step to push image description to DockerHub
-      - name: Update Docker Hub description
-        if: github.event_name != 'pull_request'
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          # readme-filepath defaults to toplevel README.md, Only necessary if you have a dedicated file with your 'Notice for docker images'
-          # readme-filepath: path/to/dedicated/notice-for-docker-image.md
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-          repository: ${{ env.IMAGE_NAMESPACE }}/${{ env.IMAGE_NAME }}

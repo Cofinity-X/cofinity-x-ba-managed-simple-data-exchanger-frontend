@@ -25,6 +25,7 @@ on:
       - 'charts/**'
     branches:
       - main
+      - dev
   workflow_dispatch:
 
 jobs:
