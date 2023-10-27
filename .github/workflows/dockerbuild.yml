@@ -29,6 +29,7 @@ on:
   pull_request:
     branches:
       - main
+      - dev
 
 env:
   IMAGE_NAMESPACE: 'tractusx'
@@ -56,6 +57,13 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # SonarCloud Scan
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       # Create SemVer or ref tags dependent of trigger event
       - name: Docker meta
