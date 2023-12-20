@@ -41,7 +41,6 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
       <div className="header--menu__item--border-bottom"></div>
     </Link>
   );
-
 };
 
 const Nav = () => {
@@ -58,7 +57,6 @@ const Nav = () => {
       setMenuOpen(false);
     }
   };
-
 
   return (
     <Paper
@@ -89,24 +87,16 @@ const Nav = () => {
       >
         <Box className="header--menu-container">
           <Link to="/" className="header--logo-container">
-            <img src="/SDE-logo.png" alt="logo" className='header--logo' />
+            <img src="/SDE-logo.png" alt="logo" className="header--logo" />
           </Link>
           <Box className="header--menu" display={'flex'} alignItems={'center'} position={'relative'}>
-            <NavLink to="dashboard">
-              {t('Dashboard')}
-            </NavLink>
+            <NavLink to="dashboard">{t('Dashboard')}</NavLink>
 
-            <NavLink to="/provider/create-data">
-              {t('Provide data')}
-            </NavLink>
+            <NavLink to="/provider/create-data">{t('Provide data')}</NavLink>
 
-            <NavLink to="/consumer/consume-data">
-              {t('Request data')}
-            </NavLink>
+            <NavLink to="/consumer/consume-data">{t('Request data')}</NavLink>
 
-            <NavLink to="about">
-              {t('Support')}
-            </NavLink>
+            <NavLink to="about">{t('Support')}</NavLink>
 
             <Box ref={avatar}>
               <IconButton aria-label="menu" onClick={openCloseMenu}>

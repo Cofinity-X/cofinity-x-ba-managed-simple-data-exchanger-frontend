@@ -18,7 +18,7 @@
 # SPDX-License-Identifier: Apache-2.0
 ################################################################################
 # => Build container
-FROM node:18.12.1-alpine3.15 as builder
+FROM node:18.19.0-alpine3.18 as builder
 
 WORKDIR /app
 
@@ -41,6 +41,7 @@ USER root
 COPY ./conf /etc/nginx
 # Static build
 WORKDIR /usr/share/nginx/html
+COPY LICENSE NOTICE.md DEPENDENCIES SECURITY.md  ./
 COPY --from=builder /app/build .
 COPY ./env.sh .
 RUN chown 101:101 /usr/share/nginx/html/

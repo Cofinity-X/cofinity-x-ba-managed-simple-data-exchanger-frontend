@@ -1,4 +1,3 @@
-
 /********************************************************************************
  * Copyright (c) 2021,2022 FEV Consulting GmbH
  * Copyright (c) 2021,2022,2023 T-Systems International GmbH
@@ -36,12 +35,15 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <Box component="footer" sx={{
-      width: '100vw',
-      '@media screen and (min-width: 1920px)': {
-        marginLeft: 'calc((1920px - 100vw)/2)',
-      },
-    }}>
+    <Box
+      component="footer"
+      sx={{
+        width: '100vw',
+        '@media screen and (min-width: 1920px)': {
+          marginLeft: 'calc((1920px - 100vw)/2)',
+        },
+      }}
+    >
       <Box className="footer--container">
         <Box className="footer--links">
           <FooterLink to="/">{t('Imprint')}</FooterLink>
@@ -50,9 +52,7 @@ const Footer = () => {
           <FooterLink to="/">{t('Version updates')}</FooterLink>
         </Box>
         <Box>
-          <Typography className="footer--copyright">
-            © Cofinity-X GmbH - All rights reserved.
-          </Typography>
+          <Typography className="footer--copyright">© Cofinity-X GmbH - All rights reserved.</Typography>
         </Box>
       </Box>
     </Box>

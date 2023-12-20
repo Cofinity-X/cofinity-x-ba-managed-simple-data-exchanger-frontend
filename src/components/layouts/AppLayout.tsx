@@ -42,8 +42,13 @@ export default function AppLayout(props: any) {
     <Box className="layout-content" sx={{ my: 0, mx: 'auto', overflowY: 'auto', overflowX: 'hidden', height: '100vh' }}>
       <Box>
         <Nav />
-        <Box className="layout-content__box-modal" sx={{ display: 'flex', mt: 8, height: 'calc(100vh - 64px)', overflow: 'hidden' }}>
-          <Box className="layout-content__box-main" sx={{ width: '100%', height: '100%', overflowY: 'auto' }}>{props.children}</Box>
+        <Box
+          className="layout-content__box-modal"
+          sx={{ display: 'flex', mt: 8, height: 'calc(100vh - 64px)', overflow: 'hidden' }}
+        >
+          <Box className="layout-content__box-main" sx={{ width: '100%', height: '100%', overflowY: 'auto' }}>
+            {props.children}
+          </Box>
         </Box>
         <Footer />
       </Box>

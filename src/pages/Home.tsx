@@ -23,7 +23,6 @@ import '../styles/home.scss';
 import { Card, Typography } from '@mui/material';
 
 export default function Home() {
-
   return (
     <Card className="container__card" variant="outlined">
       <Typography variant="h5" component="div" className="container__card__title">

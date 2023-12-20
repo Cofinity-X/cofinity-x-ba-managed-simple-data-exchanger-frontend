@@ -2,6 +2,48 @@
 
 New features, fixed bugs, known defects and other noteworthy changes to each release of the Simple Data Exchanger Frontend.
 
+## [2.3.3] -  2023-12-06
+### Changed
+- build base image security fix.
+### Known defects
+- Duration restriction need to be removed, this is not a valid policy rule.
+- Purpose policy rule wrong. Instead of “ID 3.0 Trace” it must be “ID 3.1 Trace”.
+- Usage Policy is missing the framework agreement, which is mandatorily needed for UseCase specific data offers.
+- Help link navigates to GitHub documentation of the “main” branch. Shall be linked to the release tag.
+
+## [2.3.2] -  2023-12-01
+### Changed
+- Bumped version to 2.3.2 for helm charts to match with backend release.
+
+## [2.3.1] -  2023-11-30
+### Changed
+- Bumped version to 2.3.1 for helm charts to match with backend release.
+
+## [2.3.0] -  2023-11-29
+### Changed
+- Bumped version to 2.3.0 for helm charts to match with backend release.
+
+## [2.1.4] -  non-released
+### Fixed
+- Data table pagination not working - fixed
+- Veracode vulnerability fixes
+- Missing license headers added 
+- legal information added to docker image.
+- trivy workflow steps updated.
+
+## [2.1.3] - non-released
+### Fixed
+- PCF Documentation update
+
+## [2.1.2] - non-released
+### Changed
+- Download file functions code optimisations. 
+- Page layout css fixes.
+
+## [2.1.1] - non-released
+### Added
+- PCF Submodel support added
+
 ## [2.1.0] - 2023-08-30
 ### Fixed
 - docker base image changed .
@@ -192,7 +234,11 @@ New features, fixed bugs, known defects and other noteworthy changes to each rel
 - Compliance with Catena-X Guidelines
 - Integration with Digital Twin registry service.
 
-[unreleased]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.1.1...main
+[unreleased]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.3.3...main
+[2.3.3]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.3.2...v2.3.3
+[2.3.2]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.3.1...v2.3.2
+[2.3.1]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.3.0...v2.3.1
+[2.3.0]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.1.1...v2.3.0
 [2.1.1]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.0.10...v2.0.11
 [2.0.11]: https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/compare/v2.0.10...v2.0.11
