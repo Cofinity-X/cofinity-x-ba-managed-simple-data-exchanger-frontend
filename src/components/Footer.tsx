@@ -44,7 +44,13 @@ const Footer = () => {
         },
       }}
     >
-      <Box className="footer--container">
+      <Box className="footer--container"
+        sx={{
+          '@media screen and (min-width: 1920px)': {
+            marginLeft: 'calc((100vw - 1920px)/2)',
+          },
+        }}
+      >
         <Box className="footer--links">
           <FooterLink to="/">{t('Imprint')}</FooterLink>
           <FooterLink to="/">{t('FAQs')}</FooterLink>
