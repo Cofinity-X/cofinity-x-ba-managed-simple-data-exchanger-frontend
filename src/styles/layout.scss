@@ -1,0 +1,206 @@
+@import './fonts';
+@import './colors';
+
+#root {
+  margin: 0 auto;
+  display: block;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.layout-content {
+  background-color: color(surface-bright);
+  height: 100%;
+  background-image: url(../assets/images/background.svg);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100%;
+
+  >.MuiBox-root {
+    height: 100%;
+    position: relative;
+    display: flex;
+    min-width: 0px;
+    max-width: 1920px;
+    flex: 1 1 0%;
+    flex-direction: column;
+    gap: 40px;
+    margin: 0 auto;
+  }
+
+  .layout-content__box-modal {
+    min-width: 0px;
+    flex: 1 0;
+    padding: 0 136px;
+  }
+
+  .layout-content__box-main {
+    .container__card {
+      box-shadow: 0 15px 25px #3333330d, -10px -10px 15px #ffffff1a, 0 0 25px #33333308;
+
+      &__title {
+        font-family: Karbon;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 110%;
+      }
+    }
+  }
+
+  footer {
+    background-color: color(surface-dim);
+    color: color(secondary);
+
+    .footer--container {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 136px;
+      gap: 85px;
+      max-width: 1920px;
+      justify-content: space-between;
+    }
+
+    .footer--links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .footer--link {
+      font-family: Karbon;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%;
+      color: color(text-color);
+      text-decoration: none;
+    }
+
+    .footer--copyright {
+      color: color(text-color);
+      font-family: Karbon;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%;
+    }
+  }
+
+  nav {
+    background-color: color(white);
+    color: color(text-color);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: Karbon, sans-serif;
+      color: color(text-color);
+    }
+  }
+
+  .header {
+    width: 100vw;
+
+    .header--container {
+      display: flex;
+      align-items: center;
+      height: 80px;
+      gap: 90px;
+      padding: 0 136px;
+      max-width: 1920px;
+
+      .header--menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px 0 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .header--menu__item--text {
+        font-family: Karbon, sans-serif;
+        margin: 0;
+        padding: 0;
+        letter-spacing: .1;
+        color: color(text-color);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+      }
+
+      .header--menu__item--border-bottom {
+        height: 3px;
+        width: 100%;
+        background: none;
+      }
+
+      .header--logo {
+        height: 50px;
+      }
+
+      .header--menu__item {
+        height: 100%;
+        gap: 14px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+          .header--menu__item--border-bottom {
+            animation: line 0.1s linear forwards;
+            background: color(primary)
+          }
+        }
+
+        &--active {
+          .header--menu__item--border-bottom {
+            background: color(primary)
+          }
+        }
+      }
+
+      .header--menu {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        height: 100%;
+      }
+    }
+  }
+
+  .container__card {
+    border-radius: 15px;
+    min-height: 600px;
+    background-color: color(surface-base);
+    border-width: 0;
+    border-style: solid;
+    border-color: color(surfice-medium);
+    padding: 20px;
+    box-shadow: 0 15px 25px #3333330d, -10px -10px 15px #ffffff1a, 0 0 25px #33333308;
+  }
+}
+
+// Animations 
+
+@keyframes line {
+  from {
+    left: 50%;
+    width: 0%;
+  }
+
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
