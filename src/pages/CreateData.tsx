@@ -19,7 +19,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import { Box, Grid } from '@mui/material';
+import { Box, Card, Grid } from '@mui/material';
 import { CustomAccordion, Tab, TabPanel, Tabs, Typography } from 'cx-portal-shared-components';
 import { isEmpty } from 'lodash';
 import { SyntheticEvent, useState } from 'react';
@@ -43,7 +43,7 @@ export default function CreateData() {
   };
 
   return (
-    <Box sx={{ flex: 1, p: 4 }}>
+    <Card className="container__card" variant="outlined">
       <Typography variant="h3" mb={2}>
         {t('content.provider.heading')}
       </Typography>
@@ -77,7 +77,7 @@ export default function CreateData() {
                 expanded: false,
                 icon: null,
                 id: 'panel-1',
-                onChange: () => {},
+                onChange: () => { },
                 title: t('content.provider.previewTableTitle'),
                 sx: {
                   marginTop: 30,
@@ -106,6 +106,6 @@ export default function CreateData() {
         </Box>
       )}
       <PoliciesDialog />
-    </Box>
+    </Card>
   );
 }
