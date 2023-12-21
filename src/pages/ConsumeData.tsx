@@ -18,7 +18,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
-import { Autocomplete, Box, Card, Grid, LinearProgress } from '@mui/material';
+import { Autocomplete, Box, Grid, LinearProgress } from '@mui/material';
 import {
   DataGrid,
   GridColDef,
@@ -394,7 +394,7 @@ export default function ConsumeData() {
   }, [filterSelectedBPN]);
 
   return (
-    <Card className="container__card" variant="outlined">
+    <Box sx={{ flex: 1, p: 4 }}>
       <Typography variant="h3" mb={1}>
         {t('pages.consumeData')}
       </Typography>
@@ -637,6 +637,6 @@ export default function ConsumeData() {
           </Button>
         </DialogActions>
       </Dialog>
-    </Card>
+    </Box>
   );
 }

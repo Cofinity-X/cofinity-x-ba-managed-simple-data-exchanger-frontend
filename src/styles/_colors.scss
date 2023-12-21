@@ -23,40 +23,20 @@ $colors: (
   black: #000000,
   white: #ffffff,
   // primary
-  primary: #0056FF,
-  primary-tint: #EA1392,
-  primary-shade: #A60F68,
-  // secondary
-  secondary: #4D4D4D,
-  secondary-tint: #808080,
-  secondary-button: #000000,
-  secondary-button-tint: #333333,
-  // tertiary
-  tertiary: #F58220,
-  tertiary-tint: #FF9032,
-  tertiary-shade: #D66200,
-  // error
-  error: #B62100,
-  // surfaces
-  surface-base: #ffffff,
-  surface-bright: #FAFAFA,
-  surface-medium: #EDEDED,
-  surface-dim: #DFDFDF,
-  // additional
-  additional-1: #FDB913,
-  additional-2: #5A1162,
-  additional-3: #524FA1,
-  additional-4: #A6CE39,
-  // texts
-  text-primary: #FFFFFF,
-  text-surface: #333333,
-  text-color: #262124,
-  text-color-shadow: #333333,
+  primary: #0f71cb,
+  primary-hover: #017ab0,
+  // backgrounds
+  background01: #f3f3f3,
+  // action
+  active: #939393,
+  disabled: #adadad,
+  disabledBackground: #202020,
+  // text
+  text-primary: #111111,
   text-secondary: #252525,
-  text-link: #2484C6,
-  text-positive: #6BA13C,
-  text-inactive: #A6A6A6,
-  text-inactive-shade: #D2D2D2,
+  text-tertiary: #888888,
+  text-quaternary: #a2a2a2,
+  text-quinary: #2962ba
 );
 
 @function color($key) {

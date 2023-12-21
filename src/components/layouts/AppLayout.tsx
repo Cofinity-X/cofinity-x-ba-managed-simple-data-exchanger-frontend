@@ -17,17 +17,14 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
-
-import '../../styles/layout.scss';
-
 import { Box } from '@mui/material';
 import { useEffect } from 'react';
 
 import { fetchUserPermissions } from '../../features/app/actions';
 import { setLoggedInUser } from '../../features/app/slice';
 import { useAppDispatch } from '../../features/store';
-import Footer from '../Footer';
 import Nav from '../Nav';
+import Sidebar from '../sidebar';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function AppLayout(props: any) {
@@ -39,18 +36,15 @@ export default function AppLayout(props: any) {
   }, []);
 
   return (
-    <Box className="layout-content" sx={{ my: 0, mx: 'auto', overflowY: 'auto', overflowX: 'hidden', height: '100vh' }}>
+    <Box sx={{ my: 0, mx: 'auto', overflowY: 'auto', overflowX: 'hidden', height: '100vh' }}>
       <Box>
         <Nav />
-        <Box
-          className="layout-content__box-modal"
-          sx={{ display: 'flex', mt: 8, height: 'calc(100vh - 64px)', overflow: 'hidden' }}
-        >
-          <Box className="layout-content__box-main" sx={{ width: '100%', height: '100%', overflowY: 'auto' }}>
-            {props.children}
+        <Box sx={{ display: 'flex', mt: 8, height: 'calc(100vh - 64px)', overflow: 'hidden' }}>
+          <Sidebar />
+          <Box sx={{ width: '100%', height: '100%', overflowY: 'scroll' }}>
+            <Box sx={{ flex: 1, p: 4 }}>{props.children}</Box>
           </Box>
         </Box>
-        <Footer />
       </Box>
     </Box>
   );
